@@ -14,6 +14,7 @@
 		<java.version>17</java.version>
 		<kotlin.version>1.8.22</kotlin.version>
 		<mockk-jvm.version>1.13.5</mockk-jvm.version>
+		<spring-boot-dependencies.version>3.1.5</spring-boot-dependencies.version>
 	</properties>
 
 	<dependencyManagement>
@@ -21,20 +22,21 @@
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
-				<version>3.1.5</version>
+				<version>${spring-boot-dependencies.version}</version>
 				<scope>import</scope>
+				<type>pom</type>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter</artifactId>
-				<version>3.1.5</version>
+				<version>${spring-boot-dependencies.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-test</artifactId>
-				<version>3.1.5</version>
+				<version>${spring-boot-dependencies.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -75,6 +77,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot-dependencies.version}</version>
 				<executions>
 					<execution>
 						<goals>
