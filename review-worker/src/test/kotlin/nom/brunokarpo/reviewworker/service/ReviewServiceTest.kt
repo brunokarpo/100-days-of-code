@@ -7,6 +7,7 @@ import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import nom.brunokarpo.reviewworker.model.Review
+import nom.brunokarpo.reviewworker.publishers.ReviewPublisher
 import nom.brunokarpo.reviewworker.repository.ReviewRepository
 import nom.brunokarpo.reviewworker.service.exceptions.ReviewDuplicatedException
 import org.junit.jupiter.api.Assertions
@@ -26,12 +27,19 @@ class ReviewServiceTest {
         } returns null
     }
 
+    private var reviewPublisherMock = mockk<ReviewPublisher> {
+        every {
+            publish(any())
+        } just Runs
+    }
+
     private lateinit var sut: ReviewService
 
     @BeforeEach
     fun setUp() {
         sut = ReviewService(
-            reviewRepository = reviewRepositoryMock
+            reviewRepository = reviewRepositoryMock,
+            reviewPublisher = reviewPublisherMock
         )
     }
 
@@ -50,6 +58,26 @@ class ReviewServiceTest {
 
         verify(exactly = 1) {
             reviewRepositoryMock.save(capture(slotReview))
+        }
+
+        Assertions.assertEquals(review, slotReview.captured)
+    }
+
+    @Test
+    fun `should publish review created`() {
+        val review = Review(
+            orderId = UUID.randomUUID(),
+            customerId = UUID.randomUUID(),
+            partnerId = UUID.randomUUID(),
+            score = 5
+        )
+
+        val slotReview = slot<Review>()
+
+        sut.create(review)
+
+        verify {
+            reviewPublisherMock.publish(capture(slotReview))
         }
 
         Assertions.assertEquals(review, slotReview.captured)
