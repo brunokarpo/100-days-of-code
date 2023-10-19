@@ -19,12 +19,10 @@
 **Link(s) to work**: [Calculator App](http://www.example.com)
 
 
-### Day 1: June 27, Monday
+### Day 1: Octuber 19, 2023
 
-**Today's Progress**: I've gone through many exercises on FreeCodeCamp.
+**Today's Progress**: Created the structure of project Review Worker and implemented the test and code of the main business rule of service.
 
-**Thoughts** I've recently started coding, and it's a great feeling when I finally solve an algorithm challenge after a lot of attempts and hours spent.
+**Thoughts:** Basicamente criei um código simples que estou acostumado a criar, simplemente para começar a prática de codificar todos os dias. Espero que, à medida que eu for codificando mais e mais, e através de estudos paralelos, meu código melhore ao longo do tempo. O objetivo é, ao longo do processo de aprendizagem, conseguir verificar minhas evoluções.
 
-**Link(s) to work**
-1. [Find the Longest Word in a String](https://www.freecodecamp.com/challenges/find-the-longest-word-in-a-string)
-2. [Title Case a Sentence](https://www.freecodecamp.com/challenges/title-case-a-sentence)
+**Link(s) to work**:
