@@ -1,0 +1,4 @@
+flyway.url=jdbc:postgresql://localhost:5432/review-worker
+flyway.user=review-worker-app
+flyway.password=review-worker-app
+flyway.schemas=public
