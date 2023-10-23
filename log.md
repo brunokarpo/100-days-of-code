@@ -43,3 +43,12 @@
 Também não estava commitando devidamente os códigos que estava fazendo. Vou disciplinar minha dinâmica de commits.
 
 **Link(s) to work**:
+
+
+### Day 4: Octuber 23, 2023
+
+**Today's Progress**: Worked on Reivew Worker project implementing repository layer code and creating some integration tests
+
+**Thoughts:** Voltei a trabalhar no projetinho de worker. Quero deixar documentado como costumo escrever alguns código, mais para ter como modelo se precisar realizar algum tipo de trabalho parecido. Boa parte do esforço concentrou em criar e configurar os testes de integração. No momento os testes estão rodando em uma base de dados providas em ambiente local. Amanhã vou implementar os testes rodando com o Testcontainers.
+
+**Link(s) to work**:
