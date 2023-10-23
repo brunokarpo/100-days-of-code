@@ -15,6 +15,7 @@
 		<kotlin.version>1.8.22</kotlin.version>
 		<mockk-jvm.version>1.13.5</mockk-jvm.version>
 		<spring-boot-dependencies.version>3.1.5</spring-boot-dependencies.version>
+		<skip.integration-tests>false</skip.integration-tests>
 	</properties>
 
 	<dependencyManagement>
@@ -48,8 +49,17 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 		</dependency>
 
 		<dependency>
@@ -107,6 +117,7 @@
 						<configuration>
 							<sourceDirs>
 								<sourceDir>src/test/kotlin</sourceDir>
+								<sourceDir>src/it/kotlin</sourceDir>
 							</sourceDirs>
 						</configuration>
 					</execution>
@@ -128,7 +139,35 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+					<includes>
+						<include>**/*IT.class</include>
+					</includes>
+					<testSourceDirectory>src/it/kotlin</testSourceDirectory>
+					<skipTests>${skip.integration-tests}</skipTests>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
+
+		<testResources>
+			<testResource>
+				<directory>src/it/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
 	</build>
 
 </project>

@@ -1,0 +1,2 @@
+INSERT INTO review (order_id, partner_id, customer_id, score) values
+                    ('26c48447-390a-463b-ba40-9c019a7e7780', 'f42a25f4-2acd-494b-9ae4-2c6dbcfb6d91', 'a1364327-093d-4a06-b1d8-10c280659b0c', 5);

@@ -1,0 +1,1 @@
+delete from review where 1=1;
