@@ -3,5 +3,6 @@ create table if not exists review(
     order_id text not null unique,
     partner_id text not null,
     customer_id text not null,
-    score int not null
+    score int not null,
+    created_at timestamp without time zone default now()
 );

@@ -15,6 +15,10 @@ stop:
 migrate:
 	$(MAKE) _run command=migrate
 
+.PHONY: migrate
+validate:
+	$(MAKE) _run command=validate
+
 _run:
 	docker run --rm --name review-migration \
 		--volume ${CURDIR}/conf:/flyway/conf \
